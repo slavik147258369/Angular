@@ -1,0 +1,55 @@
+<div class="uploadImage" *ngIf="uploadImage" >
+    <form>
+        <div (click) = 'uploadImage = !uploadImage'>CLOSE TAB</div>
+        <input type="file" name="" #inputValue accept="image/x-png,image/gif,image/jpeg">
+        <button class="btn btn-primary" (click) = 'takeImg()'>Send</button>
+    </form>
+</div>
+<div class="row profile">
+    <div class="col-sm-4 mainImg"><img [src]="profileImg" alt=""></div>
+    <div class="col-sm-7 name text-center">Vasya Pupkin</div>
+    <div class="col-sm-7 data">Date of Birth:</div>
+    <div class="col-sm-7 data">Place of residence:</div>
+    <div class="col-sm-7 data">Place of study:</div>
+    <div class="col-sm-7 data text-center photosName">Photos</div>
+    <div class="col-sm-7 photo">
+        <div class="col-sm-2"><img [src]="profileImg" alt=""></div>
+        <div class="col-sm-2"><img [src]="profileImg" alt=""></div>
+        <div class="col-sm-2"><img [src]="profileImg" alt=""></div>
+        <div class="col-sm-2"><img [src]="profileImg" alt=""></div>
+        <div class="col-sm-2"><img [src]="profileImg" alt=""></div>
+        <div class="col-sm-2"><img [src]="profileImg" alt=""></div>
+    </div>
+</div>
+
+<div class="row sectionProfile">
+    <div class="col-sm-4 changeImg">
+        <div class="text-center">Change image</div>    
+    </div>
+    <div class="col-sm-7 text-center wall">
+        My wall
+    </div>
+    <div class="col-sm-4 content-left-side">
+       
+    </div>
+    <div class="col-sm-7 text-center content-right-side">
+        <div class="showForms">
+            <textarea name="" id="" cols="10" rows="3" #textAreaForm (focus) = 'showButton()' [(ngModel)]="inputText" #textArea maxlength="160" placeholder="Max length: 160 characters"></textarea>
+            <div class="sendPost"><button class="btn btn-info" *ngIf = 'focusForm' type="file" (click) = 'expressionUploadImage()'>Add image</button><div #setImages></div><button class="btn btn-primary" *ngIf = 'focusForm' (click) = 'addToWall()'>Add on wall</button></div>
+        </div>
+        <div class="wallArea" #wallContent>
+            <div class="insideArea" *ngFor="let inSet of arrayArea.reverse()">
+                 <img [src]="inSet.imgProfile" alt="" class="profileArea">
+                <div class="nameArea">{{inSet.id}}</div>
+                <img [src]="inSet.img" alt="">
+                <div class="text">{{inSet.text}}</div>
+            </div>
+            <div class="insideArea"#areaContent>
+                <img [src]="profileImg" alt="" class="profileArea">
+                <div class="nameArea">{{profileName}}</div>
+                <img src="../../assets/img/flower.jpg" alt="">
+                <div class="text">It's amazing flower. My mother had this flower in our garden, when i was still small.Oohhh there was a time....I remember this so now</div>
+            </div>
+        </div>
+    </div>
+</div>
